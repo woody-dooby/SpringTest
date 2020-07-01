@@ -1,13 +1,10 @@
 package com.spring.ioc.Dependency.DependencyLookup;
 
-import com.spring.ioc.Dependency.DependencyInjection.ConstructorDependencyInjection;
-import com.spring.ioc.Dependency.DependencyInjection.DIBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
 

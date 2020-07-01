@@ -11,6 +11,6 @@ public class DIBean {
         hello();
     }
     public void hello(){
-      log.info(this.getClass().getSimpleName() + " : DI TEST" + this.toString());
+      log.info(this.getClass().getSimpleName() + " : DI TEST ");
     }
 }
