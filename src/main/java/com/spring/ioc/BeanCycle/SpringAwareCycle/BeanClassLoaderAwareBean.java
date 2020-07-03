@@ -14,8 +14,6 @@ public class BeanClassLoaderAwareBean implements BeanClassLoaderAware {
 
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println("I'DONT KNOW");
     }
 }
