@@ -1,0 +1,18 @@
+spring:
+  custom:
+    enabled : true
+    name : customProperty
+
+  profiles:
+    active: test
+
+  messages:
+    basename: messages/messages
+---
+spring:
+  custom:
+    enabled: true
+    name: realCustomProperty
+
+  profiles:
+    active: real

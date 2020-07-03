@@ -1,0 +1,30 @@
+{
+  "properties": [
+    {
+      "name": "spring.custom.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Description for spring.custom.enabled.",
+      "defaultValue": false
+    },{
+      "name": "spring.custom.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.custom.name.",
+      "defaultValue": ""
+    }
+  ],
+  "hints": [
+    {
+      "name": "spring.custom.enabled",
+      "values": [
+        {
+          "value": true,
+          "description": "true"
+        },
+        {
+          "value": false,
+          "description": "false"
+        }
+      ]
+    }
+  ]
+}

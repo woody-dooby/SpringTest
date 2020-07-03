@@ -1,14 +1,18 @@
 package com.spring.ioc;
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.annotation.PostConstruct;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class IocApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IocApplication.class, args);
+        new SpringApplicationBuilder(IocApplication.class)
+                .web(WebApplicationType.SERVLET)
+                .properties()
+                .build().run(args);
+        // == (깉디)
+        //SpringApplication.run(IocApplication.class, args);
     }
 }
