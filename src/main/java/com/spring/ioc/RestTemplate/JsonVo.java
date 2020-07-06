@@ -2,6 +2,8 @@ package com.spring.ioc.RestTemplate;
 
 import lombok.Data;
 
+
+//Jackson Annotation 을 이용하여도, Spring에서 제공하는 converter, formatter 를 이용하여도 무방.
 @Data
 //@JsonDeserialize(using = JsonCustomDeserializer.class)
 //@JsonIgnoreProperties(ignoreUnknown = true)     //이 클래스에 정의되지 않은 필드가 있을 경우에 무시하겠다는 뜻이다.

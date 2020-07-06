@@ -20,7 +20,7 @@ public class RestTemplateConfig {
 
         //매우 재밌는 점 : connection pool 이라 함은 연결을 유지한체 connection pool 에 저장하게 된다.
         //그렇지만 , HTTP 프로토콜 특성상 Stateless 한 특징을 가져서 session, cookie 나 keep-alive 를 이용하여 StateFull 스럽게 사용하는 거 같다.
-        //session 이나 cookie 는 제쳐 두고 keep-alive 를 지원하지 않는 서버의 경우 아래와 같이 connection 을 200개를 만들어도 소용없이 지속적으로 맺고 끊으며 새롭게 connection 을 진행한다.
+        //session 이나 cookie 는 제쳐 두고 k eep-alive 를 지원하지 않는 서버의 경우 아래와 같이 connection 을 200개를 만들어도 소용없이 지속적으로 맺고 끊으며 새롭게 connection 을 진행한다.
         HttpClient httpClient = HttpClientBuilder.create()
                 .setMaxConnTotal(200) //connection 개수
                 .setMaxConnPerRoute(20) // ip,port 하나당 연결 제한 개수.
