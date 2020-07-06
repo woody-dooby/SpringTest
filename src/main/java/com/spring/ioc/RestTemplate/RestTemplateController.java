@@ -3,28 +3,27 @@ package com.spring.ioc.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @RestController
 @Slf4j
 public class RestTemplateController {
 
-
-    @RequestMapping(value = "/restTest",method = RequestMethod.GET, produces = "application/xml")
+    //xml return
+    @RequestMapping(value = "/xml",method = RequestMethod.GET, produces = "application/xml")
     public XmlVo testXmlData(){
         return new XmlVo();
     }
     //json return
-    @RequestMapping(value = "/json",method = RequestMethod.GET)
-    public JsonVo testJsonData() {
-        return new JsonVo();
+    @RequestMapping(value = "/json/{name}",method = RequestMethod.GET)
+    public JsonVo testJsonData(@PathVariable("name")String name) {
+        return new JsonVo(name);
     }
     //check header
-    @RequestMapping(value = "/entity",method = RequestMethod.GET)
+    @RequestMapping(value = "/checkHeader",method = RequestMethod.GET)
     public ResponseEntity<String> checkHeader(String name, HttpServletRequest httpServletRequest) {
         log.info("Hello!!!!!!!! {}", name);
         if(!httpServletRequest.getHeader("Authentication").equals("LEMON")) {
@@ -32,11 +31,10 @@ public class RestTemplateController {
         }
         return new ResponseEntity<>("welcome!", HttpStatus.OK);
     }
-
     //post
     @RequestMapping(value = "/post",method = RequestMethod.POST)
-    public ResponseEntity<String> postForEntity(String contents){
-        log.info("requestbody: {}", contents);
+    public ResponseEntity<String> postForEntity(@RequestBody Map<String,String> contents){
+        log.info("requestbody: {}", contents.get("contents"));
         return new ResponseEntity<>("Success Response", HttpStatus.OK);
     }
 }
