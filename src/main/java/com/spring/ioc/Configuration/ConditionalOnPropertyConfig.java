@@ -10,13 +10,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 @ConditionalOnProperty(prefix = "spring.custom", name = "enabled", havingValue = "true", matchIfMissing = false)
-@EnableConfigurationProperties(CustomProperty.class)
+@EnableConfigurationProperties(CustomPropertyConfigurationProperties.class)
 public class ConditionalOnPropertyConfig {
 
     @Bean
-    public String propertyBean(CustomProperty property){
+    public String propertyBean(CustomPropertyConfigurationProperties property){
         log.info("ConditionalOnPropertyConfig TEST : {}",property.getName());
         return property.getName();
     }
-
 }

@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
 @ConfigurationProperties(prefix = "spring.custom")
-public class CustomProperty {
+public class CustomPropertyConfigurationProperties {
     private String name;
     private boolean enabled;
 }
