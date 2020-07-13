@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Component
 public class EventPublisherBean implements ApplicationRunner {
@@ -18,8 +20,30 @@ public class EventPublisherBean implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Map<String,String> map = Collections.singletonMap("data","ApplicationEvent Implement EventPublisher");
+
+        ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         //ApplicationEventPublish 가 제공.
-        applicationContext.publishEvent( new ApplicationEvent1(map));    //ApplicationEvent 상속
-        applicationContext.publishEvent( new ApplicationEvent2("object EventPublisher","object EventPublisher2"));    //일반 Object
+        service.execute(()->{
+            System.out.println(Thread.currentThread().toString());
+            while(true){
+                //ApplicationEvent 상속
+                service.execute(()->{
+                    System.out.println(Thread.currentThread().toString());
+                    applicationContext.publishEvent( new ApplicationEvent1(map));
+                });
+                //일반 Object
+                service.execute(()->{
+                    System.out.println(Thread.currentThread().toString());
+                    applicationContext.publishEvent(  new ApplicationEvent2("object EventPublisher","object EventPublisher2"));
+                } );
+                try {
+                    Thread.sleep(3000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
     }
 }
