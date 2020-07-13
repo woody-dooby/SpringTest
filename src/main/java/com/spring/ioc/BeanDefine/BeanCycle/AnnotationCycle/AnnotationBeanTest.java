@@ -1,6 +1,6 @@
-package com.spring.ioc.BeanCycle.AnnotationCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.AnnotationCycle;
 
-import com.spring.ioc.BeanCycle.CycleBean;
+import com.spring.ioc.BeanDefine.BeanCycle.CycleBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

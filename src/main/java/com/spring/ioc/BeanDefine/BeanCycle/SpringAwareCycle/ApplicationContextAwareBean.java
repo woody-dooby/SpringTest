@@ -1,4 +1,4 @@
-package com.spring.ioc.BeanCycle.SpringAwareCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.SpringAwareCycle;
 
 
 import com.spring.ioc.Dependency.DependencyInjection.DIBean;

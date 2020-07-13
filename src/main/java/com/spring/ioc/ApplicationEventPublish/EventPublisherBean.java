@@ -1,5 +1,6 @@
 package com.spring.ioc.ApplicationEventPublish;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,6 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
+@Slf4j
 public class EventPublisherBean implements ApplicationRunner {
     @Autowired
     ApplicationContext applicationContext;
@@ -24,26 +26,28 @@ public class EventPublisherBean implements ApplicationRunner {
         ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         //ApplicationEventPublish 가 제공.
         service.execute(()->{
-            System.out.println(Thread.currentThread().toString());
+            log.info("TEventPublisherBean TEST");
+            log.info("ThreadName : {}",Thread.currentThread().toString());
             while(true){
                 //ApplicationEvent 상속
                 service.execute(()->{
-                    System.out.println(Thread.currentThread().toString());
+                    log.info("ThreadName : {}",Thread.currentThread().toString());
                     applicationContext.publishEvent( new ApplicationEvent1(map));
                 });
                 //일반 Object
                 service.execute(()->{
-                    System.out.println(Thread.currentThread().toString());
+                    log.info("ThreadName : {}",Thread.currentThread().toString());
                     applicationContext.publishEvent(  new ApplicationEvent2("object EventPublisher","object EventPublisher2"));
                 } );
                 try {
-                    Thread.sleep(3000L);
+                    //5초간의 텀을 둠.
+                    Thread.sleep(5 * 1000L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-        });
 
+        });
 
     }
 }

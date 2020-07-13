@@ -1,4 +1,4 @@
-package com.spring.ioc.BeanCycle;
+package com.spring.ioc.BeanDefine.BeanCycle;
 
 
 import lombok.AllArgsConstructor;

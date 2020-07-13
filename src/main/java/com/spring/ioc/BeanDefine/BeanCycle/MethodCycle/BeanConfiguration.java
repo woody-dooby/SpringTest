@@ -1,8 +1,6 @@
-package com.spring.ioc.BeanCycle.MethodCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.MethodCycle;
 
-import com.spring.ioc.BeanCycle.CycleBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import com.spring.ioc.BeanDefine.BeanCycle.CycleBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

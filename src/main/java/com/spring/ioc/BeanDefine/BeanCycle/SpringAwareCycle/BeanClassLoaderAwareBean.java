@@ -1,7 +1,6 @@
-package com.spring.ioc.BeanCycle.SpringAwareCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.SpringAwareCycle;
 
 import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Component;
 
 /**

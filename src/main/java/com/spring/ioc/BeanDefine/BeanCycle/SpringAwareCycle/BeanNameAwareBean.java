@@ -1,8 +1,7 @@
-package com.spring.ioc.BeanCycle.SpringAwareCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.SpringAwareCycle;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component(value = "testerBean")

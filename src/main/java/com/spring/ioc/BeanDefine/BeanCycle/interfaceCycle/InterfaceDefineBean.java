@@ -1,11 +1,10 @@
-package com.spring.ioc.BeanCycle.interfaceCycle;
+package com.spring.ioc.BeanDefine.BeanCycle.interfaceCycle;
 
-import com.spring.ioc.BeanCycle.CycleBean;
+import com.spring.ioc.BeanDefine.BeanCycle.CycleBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
