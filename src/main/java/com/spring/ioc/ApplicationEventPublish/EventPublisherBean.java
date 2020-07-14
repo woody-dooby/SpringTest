@@ -28,24 +28,25 @@ public class EventPublisherBean implements ApplicationRunner {
         service.execute(()->{
             log.info("TEventPublisherBean TEST");
             log.info("ThreadName : {}",Thread.currentThread().toString());
-            while(true){
+
+            do {
                 //ApplicationEvent 상속
-                service.execute(()->{
-                    log.info("ThreadName : {}",Thread.currentThread().toString());
-                    applicationContext.publishEvent( new ApplicationEvent1(map));
+                service.execute(() -> {
+                    log.info("ThreadName : {}", Thread.currentThread().toString());
+                    applicationContext.publishEvent(new ApplicationEvent1(map));
                 });
                 //일반 Object
-                service.execute(()->{
-                    log.info("ThreadName : {}",Thread.currentThread().toString());
-                    applicationContext.publishEvent(  new ApplicationEvent2("object EventPublisher","object EventPublisher2"));
-                } );
+                service.execute(() -> {
+                    log.info("ThreadName : {}", Thread.currentThread().toString());
+                    applicationContext.publishEvent(new ApplicationEvent2("object EventPublisher", "object EventPublisher2"));
+                });
                 try {
                     //5초간의 텀을 둠.
                     Thread.sleep(5 * 1000L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
+            } while (Boolean.parseBoolean(applicationContext.getEnvironment().getProperty("debug")));
 
         });
 

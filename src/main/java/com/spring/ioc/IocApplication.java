@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class IocApplication {
 
     public static void main(String[] args) {
-
         new SpringApplicationBuilder(IocApplication.class)
                 .web(WebApplicationType.SERVLET)
                 .listeners(new CustomPropertyApplicationEnvironmentPreparedEvents())
