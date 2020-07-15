@@ -5,6 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,8 +16,8 @@ public class ConverterBean {
         @Override
         public ConverterObject convert(String str) {
             ConverterObject obj = new ConverterObject();
-            obj.setName(str.split("\\|")[0]);
-            obj.setType(str.split("\\|")[1]);
+            obj.setType(str.split("\\|")[0]);
+            obj.setName(str.split("\\|")[1]);
             obj.setList(Arrays.asList(str.split("\\|")));
             return obj;
         }
@@ -30,11 +31,14 @@ public class ConverterBean {
                 try {
                     field.setAccessible(Boolean.TRUE);
                     Object object = field.get(obj);
-                    return (CharSequence) field.get(obj);
+                    if(object instanceof String){
+                        return (CharSequence) object;
+                    }
+                    return null;
                 } catch (IllegalAccessException e) {
                     return null;
                 }
-            }).collect(Collectors.joining("|"));
+            }).filter(Objects::nonNull).collect(Collectors.joining("|"));
         }
     }
 }

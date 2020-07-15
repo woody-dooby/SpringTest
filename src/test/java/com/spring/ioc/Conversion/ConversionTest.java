@@ -2,7 +2,7 @@ package com.spring.ioc.Conversion;
 
 import com.spring.ioc.ConversionService.ConversionController;
 import com.spring.ioc.ConversionService.Convert.ConverterBean;
-import com.spring.ioc.ConversionService.Formatter.FormatterObject;
+import com.spring.ioc.ConversionService.Formatter.FormatterBean;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 import java.nio.charset.StandardCharsets;
 
-@WebMvcTest({ConversionController.class, ConverterBean.class, FormatterObject.class})
+@WebMvcTest({ConversionController.class, ConverterBean.class, FormatterBean.class})
 public class ConversionTest {
 
     @Autowired
@@ -46,7 +46,13 @@ public class ConversionTest {
     }
 
     @Test
-    void formatterTest(){
+    void formatterTest( )throws Exception {
+        String paramStr = "TEST|Converter";
 
+        bean.perform(MockMvcRequestBuilders.get("/format/"+paramStr)
+                .characterEncoding(StandardCharsets.UTF_8.name())
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(paramStr))
+                .andDo(MockMvcResultHandlers.print());;
     }
 }
