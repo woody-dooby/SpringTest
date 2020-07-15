@@ -1,5 +1,8 @@
 package com.spring.ioc.RestTemplate;
 
+import com.spring.RestTemplate.JsonVo;
+import com.spring.RestTemplate.RestTemplateAPIService;
+import com.spring.RestTemplate.XmlVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

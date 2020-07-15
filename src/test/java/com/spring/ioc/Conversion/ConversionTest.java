@@ -1,8 +1,8 @@
 package com.spring.ioc.Conversion;
 
-import com.spring.ioc.ConversionService.ConversionController;
-import com.spring.ioc.ConversionService.Convert.ConverterBean;
-import com.spring.ioc.ConversionService.Formatter.FormatterBean;
+import com.spring.ConversionService.ConversionController;
+import com.spring.ConversionService.Convert.ConverterBean;
+import com.spring.ConversionService.Formatter.FormatterBean;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
