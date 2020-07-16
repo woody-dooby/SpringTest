@@ -1,1 +1,1 @@
-org.springframework.boot.env.EnvironmentPostProcessor=com.spring.ioc.Configuration.CustomPropertyEnvironmentPostProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=com.spring.Configuration.CustomPropertyEnvironmentPostProcessor
