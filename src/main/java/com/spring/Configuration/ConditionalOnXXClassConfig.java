@@ -30,7 +30,7 @@ public class ConditionalOnXXClassConfig {
         return taskExecutor;
 
     }
-    //생성되지 않을것이다. 왜냐하면 앞에서 이미 생성했으니깐..
+
     @Bean(value = "customClassThreadPoolExecutor")
     @ConditionalOnClass(Executor.class)
     public ThreadPoolTaskExecutor customClassThreadPoolExecutor(TaskExecutorBuilder builder){
@@ -39,7 +39,7 @@ public class ConditionalOnXXClassConfig {
     }
     //생성되지 않을것이다. 왜냐하면 앞에서 이미 생성했으니깐..
     @Bean(value = "customClassMissingThreadPoolExecutor")
-    @ConditionalOnMissingClass(value = "ThreadPoolTaskExecutor")
+    @ConditionalOnMissingClass(value = "org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor")
     public ThreadPoolTaskExecutor customClassMissingThreadPoolExecutor(TaskExecutorBuilder builder){
         log.info("customClassMissingThreadPoolExecutor : CREATE");
         return builder.build();
