@@ -17,6 +17,7 @@ public class ConditionalOnXXBeanConfig {
 
 
     @Bean("threadPoolTaskExecutor")
+    @ConditionalOnMissingBean
     public Executor threadPoolTaskExecutor(){
         log.info("threadPoolTaskExecutor : CREATE");
 
@@ -29,7 +30,6 @@ public class ConditionalOnXXBeanConfig {
         taskExecutor.initialize();
 
         return taskExecutor;
-
     }
     //생성된다.
     @Bean(value = {"customThreadPoolExecutor", AsyncAnnotationBeanPostProcessor.DEFAULT_TASK_EXECUTOR_BEAN_NAME})

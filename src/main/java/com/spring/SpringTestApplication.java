@@ -4,9 +4,8 @@ import com.spring.Configuration.CustomPropertyApplicationEnvironmentPreparedEven
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.scheduling.annotation.EnableAsync;
 
-@EnableAsync
+//@EnableAsync
 @SpringBootApplication
 public class SpringTestApplication {
 
