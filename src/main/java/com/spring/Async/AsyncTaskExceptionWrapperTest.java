@@ -31,6 +31,7 @@ public class AsyncTaskExceptionWrapperTest {
 
     @Async("threadPoolTaskExecutor")
     public Future<String> asyncMethod(){
+        log.info(Thread.currentThread().getName() +" :  Thread");
         log.info("This is ThreadPoolTaskExecutorException");
         log.info("===============================");
 
@@ -93,6 +94,7 @@ public class AsyncTaskExceptionWrapperTest {
                     task.run();
                 } catch (Exception ex) {
                     handle(ex);
+                    close();
                 }
             };
         }
